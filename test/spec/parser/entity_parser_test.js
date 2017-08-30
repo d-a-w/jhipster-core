@@ -33,20 +33,6 @@ describe('::convert', () => {
         }
       });
     });
-    describe('such as invalid databaseType', () => {
-      const input = parseFromFiles(['./test/test_files/valid_jdl.jdl']);
-      it('throws an error', () => {
-        try {
-          EntityParser.parse({
-            jdlObject: JDLParser.parse(input, 'sql'),
-            databaseType: 'mongodb'
-          });
-          fail();
-        } catch (error) {
-          expect(error.name).to.eq('NoSQLModelingException');
-        }
-      });
-    });
   });
   describe('when passing valid arguments', () => {
     describe('when passing args for a gateway app', () => {
